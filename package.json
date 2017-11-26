@@ -1,7 +1,7 @@
 {
-  "name": "markdown-it-katex",
-  "version": "2.0.3",
-  "description": "Fast math support for markdown-it with KaTeX",
+  "name": "markdown-it-katex-external",
+  "version": "1.0.0",
+  "description": "Fast math support for markdown-it with KaTeX, support external link",
   "main": "index.js",
   "scripts": {
     "watch": "watchify browser.js -o bundle.js -v",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:waylonflinn/markdown-it-katex.git"
+    "url": "git+https://github.com:CHENXCHEN/markdown-it-katex-external.git"
   },
   "keywords": [
     "markdown",
@@ -17,12 +17,12 @@
     "math",
     "LaTeX",
     "markdown-it-plugin",
-    "markdown-it"
+    "markdown-it",
+    "external"
   ],
-  "author": "waylonflinn@gmail.com",
+  "author": "chenhuachaoxyz@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "katex": "^0.6.0"
   },
   "devDependencies": {
     "markdown-it": "^6.0.0",

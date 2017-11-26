@@ -1,3 +1,16 @@
+/**
+ * @Author: chenhuachao <chc>
+ * @Date:   2017-11-26T15:57:48+08:00
+ * @Email:  chenhuachaoxyz@gmail.com
+ * @Filename: index.js
+ * @Last modified by:   chc
+ * @Last modified time: 2017-11-26T16:00:49+08:00
+ * @License: MIT
+ * @Copyright: 2017
+ */
+/**
+ * This is fork from https://github.com/waylonflinn/markdown-it-katex and support for external_link.
+ */
 /* Process inline math */
 /*
 Like markdown-it-simplemath, this is a stripped down, simplified version of:
@@ -10,7 +23,7 @@ for rendering output.
 /*jslint node: true */
 'use strict';
 
-var katex = require('katex');
+var katex = null;
 
 // Test if potential opening or closing delimieter
 // Assumes that there is a "$" at state.src[pos]
@@ -40,6 +53,8 @@ function isValidDelim(state, pos) {
 }
 
 function math_inline(state, silent) {
+    if (!katex && window.katex) katex = window.katex;
+    if (!katex) return false;
     var start, match, token, res, pos, esc_count;
 
     if (state.src[state.pos] !== "$") { return false; }
@@ -101,6 +116,8 @@ function math_inline(state, silent) {
 }
 
 function math_block(state, start, end, silent){
+    if (!katex && window.katex) katex = window.katex;
+    if (!katex) return false;
     var firstLine, lastLine, next, lastPos, found = false, token,
         pos = state.bMarks[start] + state.tShift[start],
         max = state.eMarks[start]
@@ -159,6 +176,7 @@ module.exports = function math_plugin(md, options) {
 
     // set KaTeX as the renderer for markdown-it-simplemath
     var katexInline = function(latex){
+        if(!katex && window.katex) katex = window.katex;
         options.displayMode = false;
         try{
             return katex.renderToString(latex, options);
@@ -174,6 +192,7 @@ module.exports = function math_plugin(md, options) {
     };
 
     var katexBlock = function(latex){
+        if(!katex && window.katex) katex = window.katex;
         options.displayMode = true;
         try{
             return "<p>" + katex.renderToString(latex, options) + "</p>";
