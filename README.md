@@ -1,5 +1,8 @@
 # markdown-it-katex-external
 
+This plugin is fork from [markdown-it-katex](https://github.com/waylonflinn/markdown-it-katex) 
+and support external katex.
+
 Add Math to your Markdown
 
 [KaTeX](https://github.com/Khan/KaTeX) is a faster alternative to MathJax. This plugin makes it easy to support in your markdown.
@@ -7,7 +10,7 @@ Add Math to your Markdown
 Need convincing?
 
 * Check out the comparative benchmark: [KaTeX vs MathJax](https://jsperf.com/katex-vs-mathjax/42)
-* Try it in your browser: [markdown-it-katex demo](https://chenxchen.github.io/markdown-it-katex-external/)
+* Try it in your browser: [markdown-it-katex-external demo](https://chenxchen.github.io/markdown-it-katex-external/)
 
 ## Usage
 Install markdown-it
@@ -25,7 +28,7 @@ Use it in your javascript
 
 ```javascript
 var md = require('markdown-it')(),
-    mk = require('markdown-it-katex');
+    mk = require('markdown-it-katex-external');
 
 md.use(mk);
 
